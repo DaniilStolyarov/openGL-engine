@@ -1,0 +1,3 @@
+﻿  Engine.cpp
+C:\Users\danst\Desktop\c++\openGL\openGL\Engine.cpp(67): warning C4715: Engine::start: значение возвращается не при всех путях выполнения
+  openGL.vcxproj -> C:\Users\danst\Desktop\c++\openGL\x64\Debug\openGL.exe

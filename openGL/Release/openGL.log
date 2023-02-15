@@ -1,0 +1,39 @@
+﻿  GameObject.cpp
+  main.cpp
+C:\Users\danst\Desktop\c++\openGL\openGL\main.cpp(57,20): warning C4244: инициализация: преобразование "double" в "GLfloat", возможна потеря данных
+  Shader.cpp
+  Engine.cpp
+GameObject.obj : error LNK2001: неразрешенный внешний символ ___glewEnableVertexAttribArray.
+GameObject.obj : error LNK2001: неразрешенный внешний символ ___glewBindVertexArray.
+GameObject.obj : error LNK2001: неразрешенный внешний символ ___glewUseProgram.
+GameObject.obj : error LNK2001: неразрешенный внешний символ ___glewVertexAttribPointer.
+GameObject.obj : error LNK2001: неразрешенный внешний символ ___glewBindBuffer.
+GameObject.obj : error LNK2001: неразрешенный внешний символ ___glewCreateProgram.
+GameObject.obj : error LNK2001: неразрешенный внешний символ ___glewBufferData.
+GameObject.obj : error LNK2001: неразрешенный внешний символ ___glewAttachShader.
+GameObject.obj : error LNK2001: неразрешенный внешний символ ___glewGenVertexArrays.
+GameObject.obj : error LNK2001: неразрешенный внешний символ ___glewGenBuffers.
+GameObject.obj : error LNK2001: неразрешенный внешний символ ___glewDeleteShader.
+GameObject.obj : error LNK2001: неразрешенный внешний символ ___glewLinkProgram.
+main.obj : error LNK2001: неразрешенный внешний символ _glfwSwapBuffers.
+main.obj : error LNK2001: неразрешенный внешний символ _glfwGetTime.
+main.obj : error LNK2001: неразрешенный внешний символ _glfwTerminate.
+main.obj : error LNK2001: неразрешенный внешний символ _glfwPollEvents.
+main.obj : error LNK2001: неразрешенный внешний символ ___glewUniform1f.
+main.obj : error LNK2001: неразрешенный внешний символ ___glewGetUniformLocation.
+main.obj : error LNK2001: неразрешенный внешний символ _glfwWindowShouldClose.
+Shader.obj : error LNK2001: неразрешенный внешний символ ___glewGetShaderiv.
+Shader.obj : error LNK2001: неразрешенный внешний символ ___glewCompileShader.
+Shader.obj : error LNK2001: неразрешенный внешний символ ___glewCreateShader.
+Shader.obj : error LNK2001: неразрешенный внешний символ ___glewGetShaderInfoLog.
+Shader.obj : error LNK2001: неразрешенный внешний символ ___glewShaderSource.
+Engine.obj : error LNK2001: неразрешенный внешний символ _glfwGetFramebufferSize.
+Engine.obj : error LNK2001: неразрешенный внешний символ _glfwInit.
+Engine.obj : error LNK2001: неразрешенный внешний символ _glfwSetKeyCallback.
+Engine.obj : error LNK2001: неразрешенный внешний символ _glfwSetWindowShouldClose.
+Engine.obj : error LNK2001: неразрешенный внешний символ _glfwCreateWindow.
+Engine.obj : error LNK2001: неразрешенный внешний символ _glfwWindowHint.
+Engine.obj : error LNK2001: неразрешенный внешний символ _glfwMakeContextCurrent.
+Engine.obj : error LNK2001: неразрешенный внешний символ _glewExperimental.
+Engine.obj : error LNK2001: неразрешенный внешний символ _glewInit@0.
+C:\Users\danst\Desktop\c++\openGL\Release\openGL.exe : fatal error LNK1120: неразрешенных внешних элементов: 33
