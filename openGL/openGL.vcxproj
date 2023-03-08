@@ -152,6 +152,7 @@
     <ClCompile Include="assimp_Imp.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="Model.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="Texture.cpp" />
@@ -163,6 +164,7 @@
     <ClInclude Include="Engine.h" />
     <ClInclude Include="assimp_Imp.h" />
     <ClInclude Include="Mesh.h" />
+    <ClInclude Include="Model.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="Vertex.h" />

@@ -3,10 +3,10 @@
 
 
 
-vector<Vertex>* processVerts::getVerts()
+vector<Vertex>* processVerts::getVerts(string pFile)
 {
 	vector<Vertex>* verts = new vector<Vertex>{};
-	ifstream file_in("./Models/rat.obj");
+	ifstream file_in(pFile);
 	string line, word;
 	istringstream _line;
 	vector<GLfloat> vBuffer;
@@ -29,10 +29,10 @@ vector<Vertex>* processVerts::getVerts()
 	return verts;
 }
 
-vector<Polygon>* processVerts::getInds()
+vector<Polygon>* processVerts::getInds(string pFile)
 {
 	vector<Polygon>* inds = new vector<Polygon>{};
-	ifstream file_in("./Models/rat.obj");
+	ifstream file_in(pFile);
 	string line, word, qWord, tWord;
 	istringstream _line;
 
@@ -105,11 +105,11 @@ vector<Polygon>* processVerts::getInds()
 	}
 	return inds;
 }
-vector<vec2>* processVerts::getTexCoords() // список текстурных координат для вершин
+vector<vec2>* processVerts::getTexCoords(string pFile) // список текстурных координат для вершин
 {
 	vector<vec2>* TexCrds = new vector<vec2>{};
 	vector<float> tempCoords;
-	ifstream file_in("./Models/rat.obj");
+	ifstream file_in(pFile);
 	string line, word, qWord;
 	istringstream _line;
 

@@ -25,6 +25,7 @@ struct TriangleIndice
 	GLuint t_Indice;
 };
 
+
 struct Triangle
 {
 	TriangleIndice i_a, i_b, i_c; 
@@ -39,8 +40,7 @@ struct Polygon
 
 namespace processVerts
 {
-	vector<Vertex>* getVerts();
-	vector<Polygon>* getInds();
-	vector<vec2>* getTexCoords(); // список текстурных координат для 
-	vector<GLuint>* getTexInds();
+	vector<Vertex>* getVerts(string pFile);
+	vector<Polygon>* getInds(string pFile);
+	vector<vec2>* getTexCoords(string pFile); // список текстурных координат для 
 }

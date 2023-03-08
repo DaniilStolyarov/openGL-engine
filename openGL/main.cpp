@@ -139,10 +139,11 @@ void testFunction()
 	vertices = new vector<GLfloat>();
 	indices = new vector<GLuint>();
 
+	string pFile = "./Models/rat.obj";
 
-	auto verts = getVerts();
-	auto inds = getInds();
-	vector<vec2>* texCoords = getTexCoords();
+	auto verts = getVerts(pFile);
+	auto inds = getInds(pFile);
+	auto texCoords = getTexCoords(pFile);
 	Polygon p;
 
 	unsigned int i_Iterator = 0;
@@ -298,6 +299,4 @@ void testFunction()
 		}
 	
 	}
-
-
 }
