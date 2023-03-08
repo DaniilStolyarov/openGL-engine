@@ -16,7 +16,7 @@ Texture::Texture(std::string path)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
 	// загрузка изображения 
-	image = SOIL_load_image(path.c_str(), &width, &height, 0, SOIL_LOAD_RGB);
+	image = SOIL_load_image(path.c_str(), &width, &height, 0, SOIL_LOAD_AUTO);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
 	
 	// создание Mipmap`ов

@@ -204,3 +204,4 @@ GLint Engine::keyBuffer[512]{ 0 }; // инициализируем буфер
 double Engine::lastCursorPosX = (double)INT_MAX;
 double Engine::lastCursorPosY = (double)INT_MAX;
 Camera* Engine::camera = nullptr;
+

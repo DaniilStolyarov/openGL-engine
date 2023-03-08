@@ -66,7 +66,7 @@ GLfloat fi = 0.0f;
 // создаем тестовый игровой объект и помещаем его на сцену
 void testGameObject()
 {
-	Texture* texture = new Texture("./Textures/rat-texture.jpg");
+	Texture* texture = new Texture("./Textures/rat-texture.jpeg");
 
 
 
@@ -130,161 +130,171 @@ int main()
 }
 
 
-#include <sstream>
-
-vector<GLfloat>* getVerts()
-{
-	vector<GLfloat>* verts = new vector<GLfloat>{};
-	ifstream file_in("./Models/rat.obj");
-	string line, word;
-	istringstream _line;
-	while (getline(file_in, line))
-	{
-		if (line[0] != 'v' || line[1] != ' ') continue;
-		line = line.substr(2, line.size() - 2);
-		_line = istringstream(line);
-		
-		while (getline(_line, word, ' '))
-		{
-			if (word.size() == 0) continue;
-			verts->push_back(atof(word.c_str()));
-		}
-		verts->push_back(1.0f);
-		verts->push_back(1.0f);
-		verts->push_back(1.0f);
-
-		verts->push_back(1.0f);
-		verts->push_back(1.0f);
-	}
-	return verts;
-}
-
-vector<GLuint>* getInds()
-{
-	vector<GLuint>* inds = new vector<GLuint>{};
-	ifstream file_in("./Models/rat.obj");
-	string line, word, qWord;
-	istringstream _line;
-	vector<unsigned int> PolygonIndices{};
-	vector<unsigned int> PolygonIndices_2{};
-	unsigned int nWord;
-	while (getline(file_in, line))
-	{
-		if (line[0] != 'f' || line[1] != ' ') continue;
-		line = line.substr(2, line.size() - 2);
-		_line = istringstream(line);
-		PolygonIndices.clear();
-		PolygonIndices_2.clear();
-		while (getline(_line, word, ' '))
-		{
-			if (word.size() == 0) continue;
-			qWord = "";
-			for (int i = 0; i < word.size(); i++)
-			{
-				if (word[i] == '/') break;
-				qWord = qWord + word[i];
-				
-			}
-			nWord = atoi(qWord.c_str());
-			PolygonIndices.push_back(nWord);
-		}
-		if (PolygonIndices.size() == 3)
-		{
-			inds->insert(inds->end(), PolygonIndices.begin(), PolygonIndices.end());
-		}
-		else if (PolygonIndices.size() == 4)
-		{
-			PolygonIndices_2.push_back(PolygonIndices[0]);
-			PolygonIndices_2.push_back(PolygonIndices[2]);
-			PolygonIndices_2.push_back(PolygonIndices[3]);
-			PolygonIndices.pop_back();
-
-		}
-		inds->insert(inds->end(), PolygonIndices.begin(), PolygonIndices.end());
-		inds->insert(inds->end(), PolygonIndices_2.begin(), PolygonIndices_2.end());
-	}
-	return inds;
-}
-vector<vec2>* getTexCoords() // список текстурных координат для вершин
-{
-	vector<vec2>* TexCrds = new vector<vec2>{};
-	vector<float> tempCoords;
-	ifstream file_in("./Models/rat.obj");
-	string line, word, qWord;
-	istringstream _line;
-
-	while (getline(file_in, line))
-	{
-		if (line[0] != 'v' || line[1] != 't' || line[2] != ' ') continue;
-		line = line.substr(3, line.size() - 3);
-		_line = istringstream(line);
-		
-		tempCoords.clear();
-		while (getline(_line, word, ' '))
-		{
-			if (word.size() == 0) continue;
-			tempCoords.push_back(atof(word.c_str()));
-		}
-		TexCrds->push_back(vec2{ tempCoords[0], tempCoords[1] });
-	}
-	return TexCrds;
-}
-vector<GLuint>* getTexInds()
-{
-	vector<GLuint>* texInds = new vector<GLuint>{};
-	ifstream file_in("./Models/rat.obj");
-	string line, word, qWord;
-	istringstream _line;
-	vector<unsigned int> PolygonIndices{};
-	vector<unsigned int> PolygonIndices_2{};
-	unsigned int nWord;
-	bool startRecording = false;
-	while (getline(file_in, line))
-	{
-		if (line[0] != 'f' || line[1] != ' ') continue;
-		line = line.substr(2, line.size() - 2);
-		_line = istringstream(line);
-		PolygonIndices.clear();
-		PolygonIndices_2.clear();
-		while (getline(_line, word, ' '))
-		{
-			if (word.size() == 0) continue;
-			qWord = "";
-			startRecording = false;
-			for (int i = 0; i < word.size(); i++)
-			{
-				if (startRecording)
-				{
-					qWord += word[i];
-				}
-				if (word[i] == '/') startRecording = true;
-			}
-			nWord = atoi(qWord.c_str());
-			PolygonIndices.push_back(nWord);
-		}
-		if (PolygonIndices.size() == 3)
-		{
-			texInds->insert(texInds->end(), PolygonIndices.begin(), PolygonIndices.end());
-		}
-		else if (PolygonIndices.size() == 4)
-		{
-			
-			PolygonIndices_2.push_back(PolygonIndices[0]);
-			PolygonIndices_2.push_back(PolygonIndices[2]);
-			PolygonIndices_2.push_back(PolygonIndices[3]);
-			PolygonIndices.pop_back();
-
-		}
-		texInds->insert(texInds->end(), PolygonIndices.begin(), PolygonIndices.end());
-		texInds->insert(texInds->end(), PolygonIndices_2.begin(), PolygonIndices_2.end());
-	}
-	return texInds;
-}
 void testFunction()
 {
-	vertices = getVerts();
-	indices = getInds();
+	using namespace processVerts;
+	vertices = new vector<GLfloat>();
+	indices = new vector<GLuint>();
+
+
+	auto verts = getVerts();
+	auto inds = getInds();
 	vector<vec2>* texCoords = getTexCoords();
-	vector<GLuint>* texIndices = getTexInds();
+	Polygon p;
+
+	unsigned int i_Iterator = 0;
+	for (unsigned int i = 0; i < inds->size(); i++)
+	{
+	
+		p = inds->at(i);
+		if (p.Polygon_Type >= 3)
+		{
+			// position  ---   color   ---  texCoords
+			// 3 * float --- 3 * float --- 2 * float
+			
+			/*cout << "first_triangle:" << endl;
+			cout << "\ta: ";
+			cout << "\tx: ";
+			cout << texCoords->at(p.triangles[0].i_a.v_Indice).x;
+			cout << "\ty:";
+			cout << texCoords->at(p.triangles[0].i_a.v_Indice).y;
+
+			cout << endl << "\t";
+			cout << "b: ";
+			cout << "\tx: ";
+			cout << texCoords->at(p.triangles[0].i_b.v_Indice).x;
+			cout << "\ty:";
+			cout << texCoords->at(p.triangles[0].i_b.v_Indice).y;
+
+			cout << endl << "\t";
+			cout << "c: ";
+			cout << "\tx: ";
+			cout << texCoords->at(p.triangles[0].i_c.v_Indice).x;
+			cout << "\ty:";
+			cout << texCoords->at(p.triangles[0].i_c.v_Indice).y;*/
+
+			//a
+			vertices->push_back(verts->at(p.triangles[0].i_a.v_Indice - 1).Position.x);
+			vertices->push_back(verts->at(p.triangles[0].i_a.v_Indice - 1).Position.y);
+			vertices->push_back(verts->at(p.triangles[0].i_a.v_Indice - 1).Position.z);
+			
+			vertices->push_back(1.0f);
+			vertices->push_back(1.0f);
+			vertices->push_back(1.0f);
+
+			vertices->push_back(texCoords->at(p.triangles[0].i_a.v_Indice - 1).x);
+			vertices->push_back(texCoords->at(p.triangles[0].i_a.v_Indice - 1).y);
+
+			indices->push_back(i_Iterator);
+			i_Iterator += 1;
+
+			//b
+			vertices->push_back(verts->at(p.triangles[0].i_b.v_Indice - 1).Position.x);
+			vertices->push_back(verts->at(p.triangles[0].i_b.v_Indice - 1).Position.y);
+			vertices->push_back(verts->at(p.triangles[0].i_b.v_Indice - 1).Position.z);
+
+			vertices->push_back(1.0f);
+			vertices->push_back(1.0f);
+			vertices->push_back(1.0f);
+
+			vertices->push_back(texCoords->at(p.triangles[0].i_b.v_Indice - 1).x);
+			vertices->push_back(texCoords->at(p.triangles[0].i_b.v_Indice - 1).y);
+
+			indices->push_back(i_Iterator);
+			i_Iterator += 1;
+
+			//c
+			vertices->push_back(verts->at(p.triangles[0].i_c.v_Indice - 1).Position.x);
+			vertices->push_back(verts->at(p.triangles[0].i_c.v_Indice - 1).Position.y);
+			vertices->push_back(verts->at(p.triangles[0].i_c.v_Indice - 1).Position.z);
+
+			vertices->push_back(1.0f);
+			vertices->push_back(1.0f);
+			vertices->push_back(1.0f);
+
+			vertices->push_back(texCoords->at(p.triangles[0].i_c.v_Indice - 1).x);
+			vertices->push_back(texCoords->at(p.triangles[0].i_c.v_Indice - 1).y);
+
+			indices->push_back(i_Iterator);
+			i_Iterator += 1;
+		}
+		if (p.Polygon_Type == 4)
+		{
+
+			/*cout << endl;
+			cout << "second_triangle:" << endl;
+			cout << "\ta: ";
+			cout << "\tx: ";
+			cout << verts->at(p.triangles[1].i_a.v_Indice).Position.x;
+			cout << "\ty:";
+			cout << verts->at(p.triangles[1].i_a.v_Indice).Position.y;
+			cout << "\tz:";
+			cout << verts->at(p.triangles[1].i_a.v_Indice).Position.z;
+			cout << endl << "\t";
+			cout << "b: ";
+			cout << "\tx: ";
+			cout << verts->at(p.triangles[1].i_b.v_Indice).Position.x;
+			cout << "\ty:";
+			cout << verts->at(p.triangles[1].i_b.v_Indice).Position.y;
+			cout << "\tz:";
+			cout << verts->at(p.triangles[1].i_b.v_Indice).Position.z;
+			cout << endl << "\t";
+			cout << "c: ";
+			cout << "\tx: ";
+			cout << verts->at(p.triangles[1].i_c.v_Indice).Position.x;
+			cout << "\ty:";
+			cout << verts->at(p.triangles[1].i_c.v_Indice).Position.y;
+			cout << "\tz:";
+			cout << verts->at(p.triangles[1].i_c.v_Indice).Position.z;
+			cout << endl << "\t";*/
+
+			//a
+			vertices->push_back(verts->at(p.triangles[1].i_a.v_Indice - 1).Position.x);
+			vertices->push_back(verts->at(p.triangles[1].i_a.v_Indice - 1).Position.y);
+			vertices->push_back(verts->at(p.triangles[1].i_a.v_Indice - 1).Position.z);
+
+			vertices->push_back(1.0f);
+			vertices->push_back(1.0f);
+			vertices->push_back(1.0f);
+
+			vertices->push_back(texCoords->at(p.triangles[1].i_a.v_Indice - 1).x);
+			vertices->push_back(texCoords->at(p.triangles[1].i_a.v_Indice - 1).y);
+
+			indices->push_back(i_Iterator);
+			i_Iterator += 1;
+
+			//b
+			vertices->push_back(verts->at(p.triangles[1].i_b.v_Indice - 1).Position.x);
+			vertices->push_back(verts->at(p.triangles[1].i_b.v_Indice - 1).Position.y);
+			vertices->push_back(verts->at(p.triangles[1].i_b.v_Indice - 1).Position.z);
+
+			vertices->push_back(1.0f);
+			vertices->push_back(1.0f);
+			vertices->push_back(1.0f);
+
+			vertices->push_back(texCoords->at(p.triangles[1].i_b.v_Indice - 1).x);
+			vertices->push_back(texCoords->at(p.triangles[1].i_b.v_Indice - 1).y);
+
+			indices->push_back(i_Iterator);
+			i_Iterator += 1;
+
+			//c
+			vertices->push_back(verts->at(p.triangles[1].i_c.v_Indice - 1).Position.x);
+			vertices->push_back(verts->at(p.triangles[1].i_c.v_Indice - 1).Position.y);
+			vertices->push_back(verts->at(p.triangles[1].i_c.v_Indice - 1).Position.z);
+
+			vertices->push_back(1.0f);
+			vertices->push_back(1.0f);
+			vertices->push_back(1.0f);
+
+			vertices->push_back(texCoords->at(p.triangles[1].i_c.v_Indice - 1).x);
+			vertices->push_back(texCoords->at(p.triangles[1].i_c.v_Indice - 1).y);
+
+			indices->push_back(i_Iterator);
+			i_Iterator += 1;
+		}
+	
+	}
+
 
 }

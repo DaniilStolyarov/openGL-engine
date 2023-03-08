@@ -1,13 +1,3 @@
 ﻿  main.cpp
 C:\Users\danst\Desktop\c++\openGL\openGL\GameObject.h(4,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
-C:\Users\danst\Desktop\c++\openGL\openGL\main.cpp(150,25): warning C4244: аргумент: преобразование "double" в "_Ty", возможна потеря данных
-          with
-          [
-              _Ty=GLfloat
-          ]
-C:\Users\danst\Desktop\c++\openGL\openGL\main.cpp(226,29): warning C4244: аргумент: преобразование "double" в "_Ty", возможна потеря данных
-          with
-          [
-              _Ty=GLfloat
-          ]
   openGL.vcxproj -> C:\Users\danst\Desktop\c++\openGL\x64\Debug\openGL.exe
