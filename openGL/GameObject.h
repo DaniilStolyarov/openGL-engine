@@ -2,7 +2,7 @@
 
 #include "Shader.h"
 #include "Texture.h";
-
+#include "Model.h"
 
 #define GLEW_STATIC
 #include <GL/glew.h>
@@ -35,6 +35,8 @@ public:
 	// достаточный конструктор
 	GameObject( vector<GLfloat>* vertices, vector<GLuint>* indices, Shader *vertexShader, Shader *fragmentShader, Texture* texture);
 
+	GameObject(string pModel, string pTexture, Shader* vertexShader, Shader* fragmentShader);
+
 	// лепим объект из тех материалов, которые уже есть на этот момент (вершины и шейдеры)
 	void initGameObject();
 
@@ -43,9 +45,9 @@ public:
 
 	// указатель на коллбек-функцию, которая будет вызвана в update
 	// отвечает за передачу uniform значений в шейдер
-	void (*shaderUniformCallback)(); 
+	void (*shaderUniformCallback)(GameObject* pThis); 
 
-	void setUniformCallback(void (*callback)());
+	void setUniformCallback(void (*callback)(GameObject* pThis));
 
 	
 };

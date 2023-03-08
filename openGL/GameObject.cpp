@@ -2,6 +2,7 @@
 
 
 
+
 GameObject::GameObject() {
 	shaderProgram = 0;
 	VAO = 0, VBO = 0, EBO = 0;
@@ -18,6 +19,19 @@ GameObject::GameObject(vector<GLfloat>* vertices, vector<GLuint>* indices, Shade
 	this->vertexShader = vertexShader;
 	this->fragmentShader = fragmentShader;
 	this->texture = texture;
+	initGameObject();
+}
+
+GameObject::GameObject(string pModel, string pTexture, Shader* vertexShader, Shader* fragmentShader)
+{
+	Model* model = new Model(pModel, pTexture);
+	this->vertices = model->vertices;
+	this->indices = model->indices;
+	this->vertexShader = vertexShader;
+	this->fragmentShader = fragmentShader;
+	this->texture = model->texture;
+
+	cout << pTexture;
 	initGameObject();
 }
 
@@ -73,7 +87,7 @@ void GameObject::update()
 	this->standardTransform();
 
 	if (shaderUniformCallback != nullptr)
-	shaderUniformCallback();
+	shaderUniformCallback(this);
 
 	if (this->texture != nullptr)
 	{
@@ -92,7 +106,7 @@ void GameObject::update()
 	glBindVertexArray(0);
 }
 
-void GameObject::setUniformCallback(void (*callback)())
+void GameObject::setUniformCallback(void (*callback)(GameObject* pThis))
 {
 	this->shaderUniformCallback = callback;
 }
