@@ -1,11 +1,21 @@
-﻿  Camera.cpp
+﻿  main.cpp
 C:\Users\danst\Desktop\c++\openGL\openGL\GameObject.h(4,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+C:\Users\danst\Desktop\c++\openGL\openGL\main.cpp(150,25): warning C4244: аргумент: преобразование "double" в "_Ty", возможна потеря данных
+          with
+          [
+              _Ty=GLfloat
+          ]
+C:\Users\danst\Desktop\c++\openGL\openGL\main.cpp(226,29): warning C4244: аргумент: преобразование "double" в "_Ty", возможна потеря данных
+          with
+          [
+              _Ty=GLfloat
+          ]
 LINK : warning LNK4098: библиотека по умолчанию "LIBCMT" конфликтует с использованием других библиотек; используйте /NODEFAULTLIB:library
 LINK : warning LNK4098: библиотека по умолчанию "MSVCRTD" конфликтует с использованием других библиотек; используйте /NODEFAULTLIB:library
   Создание кода
-  2 of 385 functions ( 0.5%) were compiled, the rest were copied from previous compilation.
+  4 of 539 functions ( 0.7%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    39 functions had inline decision re-evaluated but remain unchanged
   Создание кода завершено
 glew32s.lib(glew.obj) : warning LNK4099: "" PDB не найден с "glew32s.lib(glew.obj)" или на ""; компоновка объекта выполняется как при отсутствии отладочных данных
   openGL.vcxproj -> C:\Users\danst\Desktop\c++\openGL\x64\Release\openGL.exe

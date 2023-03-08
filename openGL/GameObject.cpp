@@ -86,7 +86,7 @@ void GameObject::update()
 		glDrawArrays(GL_TRIANGLES, 0, vertices->size() / 3);
 	} 
 	else {
-		glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);	
+		glDrawElements(GL_TRIANGLES, indices->size() * sizeof(GLuint)/*36*/, GL_UNSIGNED_INT, 0);	
 	}
 
 	glBindVertexArray(0);
@@ -100,7 +100,7 @@ void GameObject::setUniformCallback(void (*callback)())
 void GameObject::standardTransform()
 {
 	glm::mat4 model = glm::mat4(1.0f);
-	model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+	model = glm::rotate(model, glm::radians(-0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 	GLint modelLoc = glGetUniformLocation(this->shaderProgram, "model");
 	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 
