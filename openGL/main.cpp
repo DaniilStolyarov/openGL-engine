@@ -14,13 +14,16 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-
 #include "assimp_Imp.h"
 
 void testFunction();
 
 using namespace glm;
+
 using namespace irrklang;
+
+
+
 
 	vector<GLfloat>* vertices /*= new vector<GLfloat>{
 		// Позиции          // Цвета             // Текстурные координаты
@@ -182,8 +185,8 @@ void testFunction()
 			vertices->push_back(1.0f);
 			vertices->push_back(1.0f);
 
-			vertices->push_back(texCoords->at(p.triangles[0].i_a.v_Indice - 1).x);
-			vertices->push_back(texCoords->at(p.triangles[0].i_a.v_Indice - 1).y);
+			vertices->push_back(texCoords->at(p.triangles[0].i_a.t_Indice - 1).x);
+			vertices->push_back(texCoords->at(p.triangles[0].i_a.t_Indice - 1).y);
 
 			indices->push_back(i_Iterator);
 			i_Iterator += 1;
@@ -197,8 +200,8 @@ void testFunction()
 			vertices->push_back(1.0f);
 			vertices->push_back(1.0f);
 
-			vertices->push_back(texCoords->at(p.triangles[0].i_b.v_Indice - 1).x);
-			vertices->push_back(texCoords->at(p.triangles[0].i_b.v_Indice - 1).y);
+			vertices->push_back(texCoords->at(p.triangles[0].i_b.t_Indice - 1).x);
+			vertices->push_back(texCoords->at(p.triangles[0].i_b.t_Indice - 1).y);
 
 			indices->push_back(i_Iterator);
 			i_Iterator += 1;
@@ -212,8 +215,8 @@ void testFunction()
 			vertices->push_back(1.0f);
 			vertices->push_back(1.0f);
 
-			vertices->push_back(texCoords->at(p.triangles[0].i_c.v_Indice - 1).x);
-			vertices->push_back(texCoords->at(p.triangles[0].i_c.v_Indice - 1).y);
+			vertices->push_back(texCoords->at(p.triangles[0].i_c.t_Indice - 1).x);
+			vertices->push_back(texCoords->at(p.triangles[0].i_c.t_Indice - 1).y);
 
 			indices->push_back(i_Iterator);
 			i_Iterator += 1;
@@ -257,8 +260,8 @@ void testFunction()
 			vertices->push_back(1.0f);
 			vertices->push_back(1.0f);
 
-			vertices->push_back(texCoords->at(p.triangles[1].i_a.v_Indice - 1).x);
-			vertices->push_back(texCoords->at(p.triangles[1].i_a.v_Indice - 1).y);
+			vertices->push_back(texCoords->at(p.triangles[1].i_a.t_Indice - 1).x);
+			vertices->push_back(texCoords->at(p.triangles[1].i_a.t_Indice - 1).y);
 
 			indices->push_back(i_Iterator);
 			i_Iterator += 1;
@@ -272,8 +275,8 @@ void testFunction()
 			vertices->push_back(1.0f);
 			vertices->push_back(1.0f);
 
-			vertices->push_back(texCoords->at(p.triangles[1].i_b.v_Indice - 1).x);
-			vertices->push_back(texCoords->at(p.triangles[1].i_b.v_Indice - 1).y);
+			vertices->push_back(texCoords->at(p.triangles[1].i_b.t_Indice - 1).x);
+			vertices->push_back(texCoords->at(p.triangles[1].i_b.t_Indice - 1).y);
 
 			indices->push_back(i_Iterator);
 			i_Iterator += 1;
@@ -287,8 +290,8 @@ void testFunction()
 			vertices->push_back(1.0f);
 			vertices->push_back(1.0f);
 
-			vertices->push_back(texCoords->at(p.triangles[1].i_c.v_Indice - 1).x);
-			vertices->push_back(texCoords->at(p.triangles[1].i_c.v_Indice - 1).y);
+			vertices->push_back(texCoords->at(p.triangles[1].i_c.t_Indice - 1).x);
+			vertices->push_back(texCoords->at(p.triangles[1].i_c.t_Indice - 1).y);
 
 			indices->push_back(i_Iterator);
 			i_Iterator += 1;

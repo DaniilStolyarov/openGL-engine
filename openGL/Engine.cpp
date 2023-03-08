@@ -41,7 +41,7 @@ void Engine::makeViewport()
 bool Engine::startWindow()
 {
 	this->window = glfwCreateWindow(this->width, this->height, 
-		"my window", nullptr/*glfwGetPrimaryMonitor()*/, nullptr);
+		"my window", /*nullptr */ glfwGetPrimaryMonitor(), nullptr);
 
 	if (this->window == nullptr)
 	{

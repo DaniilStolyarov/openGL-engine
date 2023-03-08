@@ -1,3 +1,6 @@
 ﻿  main.cpp
 C:\Users\danst\Desktop\c++\openGL\openGL\GameObject.h(4,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+glew32s.lib(glew.obj) : warning LNK4099: "" PDB не найден с "glew32s.lib(glew.obj)" или на ""; компоновка объекта выполняется как при отсутствии отладочных данных
+LINK : warning LNK4098: библиотека по умолчанию "LIBCMT" конфликтует с использованием других библиотек; используйте /NODEFAULTLIB:library
+LINK : warning LNK4098: библиотека по умолчанию "MSVCRT" конфликтует с использованием других библиотек; используйте /NODEFAULTLIB:library
   openGL.vcxproj -> C:\Users\danst\Desktop\c++\openGL\x64\Debug\openGL.exe
