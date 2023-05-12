@@ -1,0 +1,51 @@
+//vector<GLuint>* processVerts::getTexInds()
+//{
+//	vector<GLuint>* texInds = new vector<GLuint>{};
+//	ifstream file_in("./Models/rat.obj");
+//	string line, word, qWord;
+//	istringstream _line;
+//	vector<unsigned int> PolygonIndices{};
+//	vector<unsigned int> PolygonIndices_2{};
+//	unsigned int nWord;
+//	bool startRecording = false;
+//	while (getline(file_in, line))
+//	{
+//		if (line[0] != 'f' || line[1] != ' ') continue;
+//		line = line.substr(2, line.size() - 2);
+//		_line = istringstream(line);
+//		PolygonIndices.clear();
+//		PolygonIndices_2.clear();
+//		while (getline(_line, word, ' '))
+//		{
+//			if (word.size() == 0) continue;
+//			qWord = "";
+//			startRecording = false;
+//			for (int i = 0; i < word.size(); i++)
+//			{
+//				if (startRecording)
+//				{
+//					qWord += word[i];
+//				}
+//				if (word[i] == '/') startRecording = true;
+//			}
+//			nWord = atoi(qWord.c_str());
+//			PolygonIndices.push_back(nWord);
+//		}
+//		if (PolygonIndices.size() == 3)
+//		{
+//			texInds->insert(texInds->end(), PolygonIndices.begin(), PolygonIndices.end());
+//		}
+//		else if (PolygonIndices.size() == 4)
+//		{
+//
+//			PolygonIndices_2.push_back(PolygonIndices[0]);
+//			PolygonIndices_2.push_back(PolygonIndices[2]);
+//			PolygonIndices_2.push_back(PolygonIndices[3]);
+//			PolygonIndices.pop_back();
+//
+//		}
+//		texInds->insert(texInds->end(), PolygonIndices.begin(), PolygonIndices.end());
+//		texInds->insert(texInds->end(), PolygonIndices_2.begin(), PolygonIndices_2.end());
+//	}
+//	return texInds;
+//}
