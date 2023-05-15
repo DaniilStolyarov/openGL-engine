@@ -27,3 +27,5 @@ Texture::Texture(std::string path)
 	glBindTexture(GL_TEXTURE_2D, 0);
 
 }
+
+

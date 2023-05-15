@@ -60,7 +60,8 @@ public:
 	bool mainLoop();
 
 	// конструктор по умолчанию. Вызовет метод start() 
-	Engine(bool _runWindowed = 0// 1 - в окне, 0 - в полный экран
+	Engine(bool _runWindowed = 0, // 1 - в окне, 0 - в полный экран
+		ivec2 size = {800, 600}
 	);
 
 	// обрабатываем текущий буфер с клавишами

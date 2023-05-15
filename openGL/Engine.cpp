@@ -201,9 +201,11 @@ bool Engine::mainLoop()
 	return 0;
 }
 
-Engine::Engine(bool _runWindowed)
+Engine::Engine(bool _runWindowed, ivec2 size)
 {
 	runWindowed = _runWindowed;
+	width = size.x;
+	height = size.y;
 	this->start();
 }
 

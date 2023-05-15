@@ -1,2 +1,3 @@
 ﻿  main.cpp
+C:\Users\danst\Desktop\c++\openGL\openGL\main.cpp(328,7): warning C4101: s: неиспользованная локальная переменная
   openGL.vcxproj -> C:\Users\danst\Desktop\c++\openGL\x64\Debug\openGL.exe

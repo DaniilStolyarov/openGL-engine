@@ -42,6 +42,7 @@ public:
 	GLuint VAO, VBO, EBO; // Буферы памяти на GPU
 	vector<GLfloat>* vertices; // вершины объекта (в т.ч. цвета и текстурные координаты)
 	vector<GLuint>* indices; // индексы вершин с нуля
+	GLuint renderType = GL_TRIANGLES;
 	vector<GameObject*> children;
 	GameObject* parent;
 	string name;
@@ -58,6 +59,7 @@ public:
 
 	GameObject(string pModel, string pTexture, Shader* vertexShader, Shader* fragmentShader, GLfloat scale);
 
+	~GameObject();
 	// лепим объект из тех материалов, которые уже есть на этот момент (вершины и шейдеры)
 	void initGameObject();
 	

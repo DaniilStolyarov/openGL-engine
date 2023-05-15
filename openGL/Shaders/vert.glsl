@@ -6,6 +6,8 @@ layout (location = 2) in vec2 texCoord;
 out vec3 ourColor;
 out vec2 TexCoord;
 
+out vec3 fragPos;
+
 uniform mat4 model;
 uniform mat4 view;
 uniform mat4 projection;
@@ -18,6 +20,7 @@ void main()
 {
     // gl_Position = projection * view * model * vec4(position.z * cos(fi) - position.x * sin(fi) , position.z * sin(fi) + position.x * cos(fi), position.y, 1.0f);
     gl_Position = projection * view * model * translation * rotation *vec4(position, 1.0f);
+    fragPos = position;
     ourColor = color;
     TexCoord = vec2(texCoord.x, 1.0 - texCoord.y);
 } 

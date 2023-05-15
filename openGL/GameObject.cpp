@@ -107,10 +107,10 @@ void GameObject::update()
 	glBindVertexArray(this->VAO);
 
 	if (this->indices == nullptr) {
-		glDrawArrays(GL_TRIANGLES, 0, vertices->size() / 3);
+		glDrawArrays(renderType, 0, vertices->size() / 3);
 	} 
 	else {
-		glDrawElements(GL_TRIANGLES, indices->size() * sizeof(GLuint)/*36*/, GL_UNSIGNED_INT, 0);	
+		glDrawElements(renderType, indices->size() * sizeof(GLuint)/*36*/, GL_UNSIGNED_INT, 0);	
 	}
 
 	glBindVertexArray(0);
@@ -197,6 +197,12 @@ void GameObject::translate(vec3 nextPosition)
 
 	GLint changeLoc = glGetUniformLocation(this->shaderProgram, "translation");
 	glUniformMatrix4fv(changeLoc, 1, GL_FALSE, glm::value_ptr(transform.translationMat));
+}
+
+GameObject::~GameObject()
+{
+	glBindBuffer(GL_ARRAY_BUFFER, this->VBO);
+	glBufferData(GL_ARRAY_BUFFER,NULL, NULL, NULL);
 }
 
 
