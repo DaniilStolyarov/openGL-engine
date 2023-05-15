@@ -6,9 +6,9 @@ C:\Users\danst\Desktop\c++\openGL\openGL\main.cpp(211,11): warning C4101: V2: н
 LINK : warning LNK4098: библиотека по умолчанию "LIBCMT" конфликтует с использованием других библиотек; используйте /NODEFAULTLIB:library
 LINK : warning LNK4098: библиотека по умолчанию "MSVCRTD" конфликтует с использованием других библиотек; используйте /NODEFAULTLIB:library
   Создание кода
-  3 of 871 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
+  0 of 873 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    2 functions had inline decision re-evaluated but remain unchanged
+    0 functions had inline decision re-evaluated but remain unchanged
   Создание кода завершено
 glew32s.lib(glew.obj) : warning LNK4099: "" PDB не найден с "glew32s.lib(glew.obj)" или на ""; компоновка объекта выполняется как при отсутствии отладочных данных
   openGL.vcxproj -> C:\Users\danst\Desktop\c++\openGL\x64\Release\openGL.exe

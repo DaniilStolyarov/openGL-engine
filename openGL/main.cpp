@@ -170,10 +170,10 @@ void drawPlain()
 	plain->setUniformCallback(uniformCallback_ROTATEABLE);
 	myEngine->scene.push_back(plain);
 }
-float F(float x, float y, float z);
+
 
 enum intersection_type { SIGN, DELTA };
-vector<vec3> trace_ray_by_s(vec3 s, float tMax, float sensivity, intersection_type ETYPE)
+vector<vec3> trace_ray_by_s(vec3 s, float tMax, float sensivity, intersection_type ETYPE, float F(float a, float b, float c))
 {
 	vector<vec3> result;
 	vec3 x;
@@ -203,7 +203,7 @@ vector<vec3> trace_ray_by_s(vec3 s, float tMax, float sensivity, intersection_ty
 }
 vector<GLfloat>* trace_ray(float step /* шаг в градусах */, 
 	float sensivity /*чувствительность в единицах расстояний*/, 
-	float tMax /* дальность прорисовки*/, intersection_type ETYPE)
+	float tMax /* дальность прорисовки*/, intersection_type ETYPE, float F(float x, float y, float z))
 {
 	vector<GLfloat>* vertices = new vector<GLfloat>();
 	vec3 s;
@@ -220,7 +220,7 @@ vector<GLfloat>* trace_ray(float step /* шаг в градусах */,
 		{
 			// V - это матрица, которая трансформирует вектор i в нужный нам 
 			V1 = glm::rotate(U, glm::radians(v), vec3{ 1.0f, 0.0f, 0.0f });
-			vp1 = trace_ray_by_s(vec4{ 1.0f, 0.0f, 0.0f, 1.0f } *V1, tMax, sensivity, ETYPE);
+			vp1 = trace_ray_by_s(vec4{ 1.0f, 0.0f, 0.0f, 1.0f } *V1, tMax, sensivity, ETYPE, F);
 
 			for (auto p : vp1)
 			{
@@ -238,9 +238,9 @@ float F(float x, float y, float z)
 	//return z - pow(x * y, 3) - pow(y * x, 3);
 	// return -x * x / 4 + y * y / 9 - 2 * z;
 
+	return z - (-x * y * pow(exp(1.0f), (-x * x - y * y)));
 	return (x - 2) * (x - 2) + y * y + z * z - 9;
 	return z - sin(x);
-	return z - (-x * y * pow(exp(1.0f), (-x * x - y * y)));
 	return z - cos(abs(x) + abs(y)) - (abs(x) + abs(y));
 	return z - cos(abs(x) - abs(y));
 }
@@ -253,13 +253,45 @@ void drawSphere()
 	//cout << "time left: " << elapsed_ms.count() << endl;
 	//return 0;
 
-	auto vRay = trace_ray(1.0f, 0.02f, 10.0f, SIGN);
-
+	 auto vRay = trace_ray(1.0f, 0.01f, 10.0f, DELTA, F);
+	// auto vRay = trace_ray(0.2f, 0.01f, 10.0f, SIGN);
 	Texture* spere_texture = new Texture("./Textures/Kudzh.jpg");
 	GameObject* sphere = new GameObject(vRay, nullptr, vertexShader, fragmentShader, spere_texture);
 	sphere->setUniformCallback(uniformCallback_ROTATEABLE);
 	myEngine->scene.push_back(sphere);
 	sphere->renderType = GL_POINTS;
+
+	cout << sphere->vertices->size() / 8 << endl;
+}
+float Function1(float x, float y, float z)
+{
+	return z - (-x * y * pow(exp(1.0f), (-x * x - y * y)));
+}
+void drawFunction1()
+{
+	auto vRay = trace_ray(1.0f, 0.01f, 10.0f, SIGN, Function1);
+	// auto vRay = trace_ray(0.2f, 0.01f, 10.0f, SIGN);
+	Texture* spere_texture = new Texture("./Textures/Kudzh.jpg");
+	GameObject* sphere = new GameObject(vRay, nullptr, vertexShader, fragmentShader, spere_texture);
+	sphere->setUniformCallback(uniformCallback_ROTATEABLE);
+	myEngine->scene.push_back(sphere);
+	sphere->renderType = GL_POINTS;
+	cout << sphere->vertices->size() / 8 << endl;
+}
+float Function2(float x, float y, float z)
+{
+	return z - sin(x);
+}
+void drawFunction2()
+{
+	auto vRay = trace_ray(2.0f, 0.001f, 10.0f, DELTA, Function2);
+	// auto vRay = trace_ray(0.2f, 0.01f, 10.0f, SIGN);
+	Texture* spere_texture = new Texture("./Textures/Kudzh.jpg");
+	GameObject* sphere = new GameObject(vRay, nullptr, vertexShader, fragmentShader, spere_texture);
+	sphere->setUniformCallback(uniformCallback_ROTATEABLE);
+	myEngine->scene.push_back(sphere);
+	sphere->renderType = GL_POINTS;
+	cout << sphere->vertices->size() / 8 << endl;
 }
 // создаем тестовый игровой объект(ы) и помещаем его(их) на сцену
 void testGameObject(string entity)
@@ -281,8 +313,10 @@ void testGameObject(string entity)
 		drawRat();
 	if (entity == "plain")
 		drawPlain();
-	if (entity == "sphere")
-		drawSphere();
+	if (entity == "function1")
+		drawFunction1();
+	if (entity == "function2")
+		drawFunction2();
 
 	// drawPlane();
 	// drawCar();
