@@ -1,2 +1,6 @@
 ﻿  main.cpp
-  openGL.vcxproj -> C:\Users\danst\Desktop\c++\openGL\x64\Debug\openGL.exe
+C:\Users\danst\Desktop\github.OpenGL-engine\openGL-engine\openGL\main.cpp(211,19): warning C4101: V4: неиспользованная локальная переменная
+C:\Users\danst\Desktop\github.OpenGL-engine\openGL-engine\openGL\main.cpp(209,7): warning C4101: s: неиспользованная локальная переменная
+C:\Users\danst\Desktop\github.OpenGL-engine\openGL-engine\openGL\main.cpp(211,15): warning C4101: V3: неиспользованная локальная переменная
+C:\Users\danst\Desktop\github.OpenGL-engine\openGL-engine\openGL\main.cpp(211,11): warning C4101: V2: неиспользованная локальная переменная
+  openGL.vcxproj -> C:\Users\danst\Desktop\github.OpenGL-engine\openGL-engine\x64\Debug\openGL.exe

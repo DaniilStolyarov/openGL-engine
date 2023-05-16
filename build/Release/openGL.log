@@ -1,0 +1,16 @@
+﻿  Camera.cpp
+C:\Users\danst\Desktop\c++\openGL\openGL\GameObject.h(4,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+  GameObject.cpp
+C:\Users\danst\Desktop\c++\openGL\openGL\GameObject.h(4,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+  assimp_Imp.cpp
+  main.cpp
+C:\Users\danst\Desktop\c++\openGL\openGL\GameObject.h(4,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+  Mesh.cpp
+  Shader.cpp
+  Engine.cpp
+C:\Users\danst\Desktop\c++\openGL\openGL\GameObject.h(4,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+C:\Users\danst\Desktop\c++\openGL\openGL\Engine.cpp(150,50): warning C4244: +=: преобразование "double" в "GLfloat", возможна потеря данных
+C:\Users\danst\Desktop\c++\openGL\openGL\Engine.cpp(151,52): warning C4244: +=: преобразование "double" в "GLfloat", возможна потеря данных
+  Texture.cpp
+  Vertex.cpp
+C:\Users\danst\Desktop\c++\openGL\libs\irrKlang.exp : fatal error LNK1112: тип компьютера модуля "x64" конфликтует с типом целевого компьютера "x86"
