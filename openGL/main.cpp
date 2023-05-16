@@ -432,15 +432,20 @@ int main()
 	
 	Engine::camera = new Camera(vec3{ 0.0f, 1.6f, 2.0f }, vec3(25.0f, 0.0f, 0.0f)); // вращение по оси z не сработает
 	// todo: rotation пока не работает
-	SoundEngine = createIrrKlangDevice();
+
+
+	
 
 	linkKeys();
 
-
 	testGameObject(entity);
 
+	/*SoundEngine = createIrrKlangDevice();
+
+	
+
 	SoundEngine->setSoundVolume(0.0f);
-	ISound* sound = SoundEngine->play2D("./audio/rat.mp3", true);
+	ISound* sound = SoundEngine->play2D("./audio/rat.mp3", true);*/
 	
 
 	if (myEngine->mainLoop()) return 0;
@@ -451,7 +456,6 @@ int main()
 	}
 	
 	delete myEngine;
-	delete sound;
 	delete SoundEngine;
 }
 	return 0;
