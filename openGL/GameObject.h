@@ -55,9 +55,11 @@ public:
 	GameObject();
 
 	// достаточный конструктор
-	GameObject( vector<GLfloat>* vertices, vector<GLuint>* indices, Shader *vertexShader, Shader *fragmentShader, Texture* texture);
+	GameObject( vector<GLfloat>* vertices, vector<GLuint>* indices, 
+		Shader *vertexShader, Shader *fragmentShader, Texture* texture);
 
-	GameObject(string pModel, string pTexture, Shader* vertexShader, Shader* fragmentShader, GLfloat scale);
+	GameObject(string pModel, string pTexture,
+		Shader* vertexShader, Shader* fragmentShader, GLfloat scale);
 
 	~GameObject();
 	// лепим объект из тех материалов, которые уже есть на этот момент (вершины и шейдеры)

@@ -76,7 +76,7 @@ void drawRat()
 void drawPlane()
 {
 
-	GameObject* plane = new GameObject("./Models/plane.obj", "./Textures/Kudzh.jpg", vertexShader, fragmentShader, 1.0f);
+	GameObject* plane = new GameObject("./Models/plane.obj", "./Textures/piper_bump.jpg", vertexShader, fragmentShader, 1.0f);
 	GameObject* prop = plane->children[159]; // пропеллер
 	
 	plane->setUniformCallback(&uniformCallback_ROTATEABLE);
@@ -100,7 +100,7 @@ void drawPlane()
 
 void drawTank()
 {
-	GameObject* tank = new GameObject("./Models/WeissMaus.obj", "./Textures/tank.jpg", vertexShader, fragmentShader, 1.0f);
+	GameObject* tank = new GameObject("./Models/WeissMaus.obj", "./Textures/piper_bump.jpg", vertexShader, fragmentShader, 1.0f);
 
 	tank->setUniformCallback(&uniformCallback_ROTATEABLE);
 
@@ -129,7 +129,6 @@ void drawTank()
 float Y_of_XZ(float x, float z)
 {
 	return (- x * x / 4.0f  + z * z / 4.0f) / 2.0f;
-
 	// return sqrt(1 - x*x - z*z);
 }
 // рисует квадрат заданного ребра
@@ -192,8 +191,6 @@ vector<vec3> trace_ray_by_s(vec3 s, float tMax, float sensivity, intersection_ty
 			|| (((ETYPE == DELTA) && (abs(current_Value_F) < sensivity / 0.1f))))
 		{
 			previous_Solution = x;
-			// пока что мы обрабатываем не более одного решения)
-			// а стоп, уже обрабатываем все)
 			result.push_back(x);
 		}
 		previous_Value_F = current_Value_F;
@@ -428,7 +425,7 @@ int main()
 	string entity;
 	cin >> entity;
 
-	myEngine = new Engine(0, ivec2{1920, 1080});
+	myEngine = new Engine(1, ivec2{1280, 720});
 	
 	Engine::camera = new Camera(vec3{ 0.0f, 1.6f, 2.0f }, vec3(25.0f, 0.0f, 0.0f)); // вращение по оси z не сработает
 	// todo: rotation пока не работает

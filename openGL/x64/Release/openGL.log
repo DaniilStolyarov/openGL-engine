@@ -1,14 +1,17 @@
-﻿  main.cpp
-C:\Users\danst\Desktop\c++\openGL\openGL\main.cpp(211,19): warning C4101: V4: неиспользованная локальная переменная
-C:\Users\danst\Desktop\c++\openGL\openGL\main.cpp(209,7): warning C4101: s: неиспользованная локальная переменная
-C:\Users\danst\Desktop\c++\openGL\openGL\main.cpp(211,15): warning C4101: V3: неиспользованная локальная переменная
-C:\Users\danst\Desktop\c++\openGL\openGL\main.cpp(211,11): warning C4101: V2: неиспользованная локальная переменная
+﻿  Engine.cpp
+C:\Users\danst\Desktop\github.OpenGL-engine\openGL-engine\openGL\Engine.cpp(158,50): warning C4244: +=: преобразование "double" в "GLfloat", возможна потеря данных
+C:\Users\danst\Desktop\github.OpenGL-engine\openGL-engine\openGL\Engine.cpp(159,52): warning C4244: +=: преобразование "double" в "GLfloat", возможна потеря данных
+  main.cpp
+C:\Users\danst\Desktop\github.OpenGL-engine\openGL-engine\openGL\main.cpp(208,19): warning C4101: V4: неиспользованная локальная переменная
+C:\Users\danst\Desktop\github.OpenGL-engine\openGL-engine\openGL\main.cpp(206,7): warning C4101: s: неиспользованная локальная переменная
+C:\Users\danst\Desktop\github.OpenGL-engine\openGL-engine\openGL\main.cpp(208,15): warning C4101: V3: неиспользованная локальная переменная
+C:\Users\danst\Desktop\github.OpenGL-engine\openGL-engine\openGL\main.cpp(208,11): warning C4101: V2: неиспользованная локальная переменная
 LINK : warning LNK4098: библиотека по умолчанию "LIBCMT" конфликтует с использованием других библиотек; используйте /NODEFAULTLIB:library
 LINK : warning LNK4098: библиотека по умолчанию "MSVCRTD" конфликтует с использованием других библиотек; используйте /NODEFAULTLIB:library
   Создание кода
-  6 of 873 functions ( 0.7%) were compiled, the rest were copied from previous compilation.
+  3 of 873 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     1 functions had inline decision re-evaluated but remain unchanged
   Создание кода завершено
 glew32s.lib(glew.obj) : warning LNK4099: "" PDB не найден с "glew32s.lib(glew.obj)" или на ""; компоновка объекта выполняется как при отсутствии отладочных данных
-  openGL.vcxproj -> C:\Users\danst\Desktop\c++\openGL\x64\Release\openGL.exe
+  openGL.vcxproj -> C:\Users\danst\Desktop\github.OpenGL-engine\openGL-engine\x64\Release\openGL.exe

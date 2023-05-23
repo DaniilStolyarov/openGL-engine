@@ -23,7 +23,7 @@ public:
 
 
 	GLFWwindow* window; // окно приложения
-	GLint width = 1920, height = 1080; // размеры окна в пикселях
+	GLint width = 1280, height = 720; // размеры окна в пикселях
 	bool runWindowed = 1;
 
 	vector<GameObject*> scene = {}; // сцена, которая состоит из указателей на игровые объекты
