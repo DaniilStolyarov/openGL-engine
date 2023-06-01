@@ -79,8 +79,6 @@ public:
 	
 	void rotate(vec3 nextRotation);
 	void translate(vec3 nextPosition);
-	
-
 };
 
 

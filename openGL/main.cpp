@@ -5,7 +5,7 @@
 #include "Camera.h"
 #include "Model.h"
 #include "Vertex.h"
-#include "Circle.h"
+
 
 #define GLEW_STATIC
 #include <GL/glew.h>
@@ -16,7 +16,6 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
-
 
 #include <chrono>
 using namespace glm;
@@ -129,6 +128,7 @@ void drawTank()
 float Y_of_XZ(float x, float z)
 {
 	return (- x * x / 4.0f  + z * z / 4.0f) / 2.0f;
+	return 3 * x + 2 * z;
 	// return sqrt(1 - x*x - z*z);
 }
 // рисует квадрат заданного ребра
@@ -262,9 +262,10 @@ void drawSphere()
 }
 float Function1(float x, float y, float z)
 {
-	return (x) * (x)+y * y + z * z - 9;
 
+	return x * x - 2 * x * y - 2 * x - 6 * y - 19;
 	return z - (-x * y * pow(exp(1.0f), (-x * x - y * y)));
+	return (x) * (x)+y * y + z * z - 9;
 }
 void drawFunction1()
 {
@@ -280,6 +281,7 @@ void drawFunction1()
 float Function2(float x, float y, float z)
 {
 	return z - sin(x);
+	return x * x + y * y - z * z;
 }
 void drawFunction2()
 {
